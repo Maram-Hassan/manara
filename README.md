@@ -1,5 +1,5 @@
-![image](https://github.com/user-attachments/assets/fd920870-a66b-45a3-8c38-954855eff6d4)
 Project 1: Scalable Web Application with ALB and Auto Scaling
+![image](https://github.com/user-attachments/assets/fd920870-a66b-45a3-8c38-954855eff6d4)
 Architecture: EC2-based
 Description:
 Deploy a simple web application on AWS using EC2 instances, ensuring high availability and scalability with Elastic Load Balancing (ALB) and Auto Scaling Groups (ASG). The project demonstrates best practices for compute scalability, security, and cost optimization.
