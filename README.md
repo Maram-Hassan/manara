@@ -39,22 +39,7 @@ Key Components and Services:
 
 7. Amazon CloudFront: Provides fast content delivery by caching content closer to users, reducing latency and improving the overall user experience.
 
-8.IAM Roles
-    EC2 Instance Role
-Purpose: Allow EC2 instances to interact with AWS services like S3, CloudWatch, and Parameter Store.
-
-Permissions:
-
-AmazonEC2RoleforSSM (for AWS Systems Manager session access)
-
-AmazonS3ReadOnlyAccess ( EC2 needs to fetch from S3)
-
-9.SNS (Simple Notification Service):
-
-Purpose: SNS could be integrated for sending notifications on scaling events, health check failures, or security alerts.
-
-Permissions:
-
-sns:Publish for EC2 to send messages to an SNS topic.
+8.IAM Roles:EC2 Instance Role its Purpose to Allow EC2 instances to interact with AWS services like S3 and CloudWatch,Permissions:AmazonEC2RoleforSSM (for AWS Systems Manager session access),AmazonS3ReadOnlyAccess ( EC2 needs to fetch from S3)
+9.SNS (Simple Notification Service) its Purpose that SNS could be integrated for sending notifications on scaling events, health check failures, or security alerts.,Permissions:sns:Publish for EC2 to send messages to an SNS topic.
 
 
