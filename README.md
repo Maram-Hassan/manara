@@ -28,8 +28,36 @@ Key Components and Services:
 
 7. Amazon CloudFront: Provides fast content delivery by caching content closer to users, reducing latency and improving the overall user experience.
 
-   Create IAM role for EC2 instance:
+   IAM Roles
+    EC2 Instance Role
+Purpose: Allow EC2 instances to interact with AWS services like S3, CloudWatch, and Parameter Store.
 
-First, we will create an IAM role to securely connect to our EC2 instances without using SSH keys or opening additional ports in our infrastructure. The SSM agent is already installed on the instances.
+Permissions:
 
-IAM dashboard > Roles > Create role > Select trusted entity: AWS service > Service or use case: EC2 > Next > Add permissions policies: AmazonSSMManagedInstanceCore > Next > Role name: SSMRole > Create role
+AmazonEC2RoleforSSM (for AWS Systems Manager session access)
+
+AmazonS3ReadOnlyAccess ( EC2 needs to fetch from S3)
+{
+  "Effect": "Allow",
+  "Action": [
+    "s3:GetObject",
+    "cloudwatch:PutMetricData",
+    "ssm:GetParameter",
+    "ec2:DescribeInstances"
+  ],
+  "Resource": "*"
+}
+SNS (Simple Notification Service):
+
+Purpose: SNS could be integrated for sending notifications on scaling events, health check failures, or security alerts.
+
+Permissions:
+
+sns:Publish for EC2 or Lambda functions to send messages to an SNS topic.
+
+IAM role granting specific services permission to publish/subscribe to topics.
+{
+  "Effect": "Allow",
+  "Action": "sns:Publish",
+  "Resource": "arn:aws:sns:us-east-1:123456789012:MyTopic"
+}
