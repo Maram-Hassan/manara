@@ -37,6 +37,7 @@ Permissions:
 AmazonEC2RoleforSSM (for AWS Systems Manager session access)
 
 AmazonS3ReadOnlyAccess ( EC2 needs to fetch from S3)
+```
 {
   "Effect": "Allow",
   "Action": [
@@ -47,6 +48,7 @@ AmazonS3ReadOnlyAccess ( EC2 needs to fetch from S3)
   ],
   "Resource": "*"
 }
+```
 SNS (Simple Notification Service):
 
 Purpose: SNS could be integrated for sending notifications on scaling events, health check failures, or security alerts.
@@ -56,8 +58,10 @@ Permissions:
 sns:Publish for EC2 or Lambda functions to send messages to an SNS topic.
 
 IAM role granting specific services permission to publish/subscribe to topics.
+```
 {
   "Effect": "Allow",
   "Action": "sns:Publish",
   "Resource": "arn:aws:sns:us-east-1:123456789012:MyTopic"
 }
+```
